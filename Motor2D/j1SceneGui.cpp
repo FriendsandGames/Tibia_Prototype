@@ -41,6 +41,9 @@ bool j1SceneGui::Start()
 	Button* StartGame;
 	StartGame = App->gui->AddButton(STARTGAME, 200, 500, { 0,0,192,56 },true,"Start Game");
 
+	Button* Credits;
+	Credits = App->gui->AddButton(CREDITS, 200, 900, { 0,0,192,56 }, true, "Credits");
+
 	Button* Options;
 	Options = App->gui->AddButton(OPTIONS, 200, 700, { 0,0,192,56 }, true, "Options");
 

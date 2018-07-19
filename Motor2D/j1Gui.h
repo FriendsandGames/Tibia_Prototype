@@ -21,6 +21,7 @@ enum ElementName
 {
 	ATLAS,
 	STARTGAME,
+	CREDITS,
 	OPTIONS
 };
 // ---------------------------------------------------
