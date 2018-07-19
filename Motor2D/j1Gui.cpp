@@ -55,12 +55,13 @@ bool j1Gui::PreUpdate(float dt)
 
 bool j1Gui::Update(float dt)
 {
-	BlitElements();
+
 	return true;
 }
 // Called after all Updates
 bool j1Gui::PostUpdate()
 {
+	BlitElements();
 	return true;
 }
 
