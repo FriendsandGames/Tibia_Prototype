@@ -53,6 +53,9 @@ public:
 	pugi::xml_document		gui_config_file;
 	pugi::xml_parse_result	result;
 
+	bool					startgameaction = false;
+	bool					isGuiDebuggin = false;
+
 
 
 

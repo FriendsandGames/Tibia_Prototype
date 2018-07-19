@@ -93,7 +93,7 @@ void j1Gui::BlitElements()
 
 	App->input->GetMousePosition(mouse_x, mouse_y);
 
-	for (std::list<Gui_Elements*>::iterator it = element_list.begin(); it != element_list.end(); it++)
+	for (std::list<Gui_Elements*>::iterator it = element_list.begin(); it != element_list.end() && App->scene_gui->isGuiDebuggin == true; it++)
 	{
 		if (mouse_x >= (*it)->position.x &&
 			mouse_y >= (*it)->position.y &&
@@ -195,9 +195,6 @@ Image * j1Gui::AddImage(ElementName name, int spawn_x, int spawn_y, SDL_Rect rec
 	Image* ret = new Image(name, position.x, position.y, rect, active, callback, texture);
 	image_list.push_back(ret);
 	element_list.push_back(ret);
-
-
-	
 
 	return ret;
 }
