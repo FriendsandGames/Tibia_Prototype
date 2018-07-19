@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+	<STARTGAME>
+		<position x="842" y="691" />
+	</STARTGAME>
+	<OPTIONS>
+		<position x="846" y="798" />
+	</OPTIONS>
+	<ATLAS>
+		<position x="1246" y="-10" />
+	</ATLAS>
+</config>
