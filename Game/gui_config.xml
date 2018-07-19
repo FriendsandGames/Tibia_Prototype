@@ -1,12 +1,15 @@
 <?xml version="1.0"?>
 <config>
 	<STARTGAME>
-		<position x="842" y="691" />
+		<position x="720" y="262" />
 	</STARTGAME>
 	<OPTIONS>
-		<position x="846" y="798" />
+		<position x="717" y="517" />
 	</OPTIONS>
 	<ATLAS>
 		<position x="1246" y="-10" />
 	</ATLAS>
+	<CREDITS>
+		<position x="719" y="386" />
+	</CREDITS>
 </config>

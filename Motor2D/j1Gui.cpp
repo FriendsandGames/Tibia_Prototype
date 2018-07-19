@@ -234,6 +234,7 @@ const char* j1Gui::ElementNametoString(ElementName name)
 		case ATLAS:		return "ATLAS";
 		case STARTGAME: return "STARTGAME";
 		case OPTIONS:	return "OPTIONS";
+		case CREDITS:  return "CREDITS";
 	}
 }
 
