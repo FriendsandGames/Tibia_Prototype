@@ -39,13 +39,14 @@ bool j1SceneGui::Start()
 	gui_config_node = gui_config_file.first_child();
 		
 	Button* StartGame;
-	StartGame = App->gui->AddButton(STARTGAME, 200, 500, { 0,0,192,56 },true,"Start Game");
+	StartGame = App->gui->AddButton(STARTGAME, 200, 500, { 0,0,192,56 },true, "Start Game");
 
 	Button* Credits;
 	Credits = App->gui->AddButton(CREDITS, 200, 900, { 0,0,192,56 }, true, "Credits");
 
 	Button* Options;
 	Options = App->gui->AddButton(OPTIONS, 200, 700, { 0,0,192,56 }, true, "Options");
+
 
 	//Image* Atlas;
 	//Atlas = App->gui->AddImage(ATLAS, 0, 0, { 0,0,1000,1000 }, true, this);

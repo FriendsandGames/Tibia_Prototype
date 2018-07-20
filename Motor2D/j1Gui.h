@@ -59,8 +59,8 @@ public:
 
 	void BlitElements();
 	
-	Image * AddImage(ElementName name, int x, int y, SDL_Rect rect, bool active, j1Module * callback = nullptr, SDL_Texture * texture = nullptr);
-	Button* AddButton(ElementName name, int x, int y, SDL_Rect section, bool active, const char* display_string = NULL, j1Module* callback = nullptr,  SDL_Texture * texture = nullptr);
+	Image* AddImage(ElementName name, int x, int y, SDL_Rect rect, bool active, j1Module * callback = nullptr, SDL_Texture * texture = nullptr);
+	Button* AddButton(ElementName name, int x, int y, SDL_Rect section, bool active, const char* display_string = nullptr, j1Module* callback = nullptr,  SDL_Texture * texture = nullptr);
 	
 	const char* ElementNametoString(ElementName name);
 	iPoint WriteReadXML(ElementName name, int spawn_x, int spawn_y, SDL_Rect rect);
