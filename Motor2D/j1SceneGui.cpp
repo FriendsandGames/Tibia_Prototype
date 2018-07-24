@@ -143,11 +143,12 @@ bool j1SceneGui::ActionController(ElementName name)
 	{
 		case OPTIONS:
 		{
-
+			break;
 		}
 		case STARTGAME:
 		{
 			startgameaction = true;
+			break;
 		}
 
 	}

@@ -16,6 +16,7 @@
 #include "j1Gui.h"
 #include "j1App.h"
 #include "j1SceneGui.h"
+#include "j1EntityController.h"
 
 // Constructor
 j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
@@ -33,6 +34,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	font = new j1Fonts();
 	gui = new j1Gui();
 	scene_gui = new j1SceneGui();
+	entity = new j1EntityController();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -43,7 +45,9 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(map);
 	AddModule(pathfinding);
 	AddModule(font);
+	AddModule(entity);
 	AddModule(gui);
+
 
 	// scene last
 	AddModule(scene_gui);

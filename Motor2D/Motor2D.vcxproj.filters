@@ -67,6 +67,15 @@
     <ClCompile Include="Gui_Button.cpp">
       <Filter>Desenvolupament  ========\Modules\Gui</Filter>
     </ClCompile>
+    <ClCompile Include="j1EntityController.cpp">
+      <Filter>Desenvolupament  ========\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity_Player.cpp">
+      <Filter>Desenvolupament  ========\Modules\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Desenvolupament  ========\Modules\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -153,6 +162,15 @@
     <ClInclude Include="Gui_Button.h">
       <Filter>Desenvolupament  ========\Modules\Gui</Filter>
     </ClInclude>
+    <ClInclude Include="j1EntityController.h">
+      <Filter>Desenvolupament  ========\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity_Player.h">
+      <Filter>Desenvolupament  ========\Modules\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Desenvolupament  ========\Modules\Entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Programacio 2 ===========">
@@ -178,6 +196,9 @@
     </Filter>
     <Filter Include="Desenvolupament  ========\Modules\Files">
       <UniqueIdentifier>{6cd27e9b-72e7-4817-8223-63361be55617}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Desenvolupament  ========\Modules\Entities">
+      <UniqueIdentifier>{70d8cc25-6c73-4322-b460-e2b669417409}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
