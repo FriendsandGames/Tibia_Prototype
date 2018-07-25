@@ -177,17 +177,65 @@ bool j1Scene::CleanUp()
 void j1Scene::PlayerMovementInputs()
 {
 
-	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN)
-		player_y = player_y - App->map->data.tile_height * 2;
 
-	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_DOWN)
-		player_x = player_x - App->map->data.tile_width * 2;
-
-	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
-		player_y = player_y + App->map->data.tile_height * 2;
-
-	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN)
-		player_x = player_x + App->map->data.tile_width * 2;
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT || player_moving_n == true)
+	{
+		if (player_y !=  original_y - App->map->data.tile_height * 2)
+		{
+			player_y = player_y - 1;
+			player_moving_n = true;
+		}
+		else
+		{
+			player_moving_n = false;
+			original_y = player_y;
+		}
+	}
+	else if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT || player_moving_w == true)
+	{
+		if (player_x != original_x - App->map->data.tile_height * 2)
+		{
+			player_x = player_x - 1;
+			player_moving_w = true;
+		}
+		else
+		{
+			player_moving_w = false;
+			original_x = player_x;
+		}
+	}		
+	else if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT || player_moving_s == true)
+	{
+		if (player_y != original_y + App->map->data.tile_height * 2)
+		{
+			player_y = player_y + 1;
+			player_moving_s = true;
+		}
+		else
+		{
+			player_moving_s = false;
+			original_y = player_y;
+		}
+	}		
+	else if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT || player_moving_e == true)
+	{
+		if (player_x != original_x + App->map->data.tile_height * 2)
+		{
+			player_x = player_x + 1;
+			player_moving_e = true;
+		}
+		else
+		{
+			player_moving_e = false;
+			original_x = player_x;
+		}
+	}
+	else
+	{
+		original_y = player_y;
+		original_x = player_x;
+	}
+		
 
 	SDL_Rect rect = { 300, 0, App->map->data.tile_width * 2, App->map->data.tile_height * 2 };
 
@@ -210,7 +258,12 @@ void j1Scene::CameraMovement(float dt)
 		if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 			App->render->camera.x -= floor(2000.0f * dt);
 	}
-
+	else
+	{
+		App->render->camera.x = -player_x * 2 + App->render->camera.w/2;
+		App->render->camera.y = -player_y * 2 + App->render->camera.h/2;
+	}
+	
 	
 
 

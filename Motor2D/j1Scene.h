@@ -58,6 +58,11 @@ public:
 
 	p2SString			display_floating_score;
 	bool				isDebuggin = false;
+	int					original_y, original_x;
+	bool				player_moving_n = false;
+	bool				player_moving_s = false;
+	bool				player_moving_e = false;
+	bool				player_moving_w = false;
 
 
 
