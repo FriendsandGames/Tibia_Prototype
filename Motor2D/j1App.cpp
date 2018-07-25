@@ -50,8 +50,8 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 
 
 	// scene last
-	AddModule(scene_gui);
 	AddModule(scene);
+	AddModule(scene_gui);
 
 
 	// render last to swap buffer

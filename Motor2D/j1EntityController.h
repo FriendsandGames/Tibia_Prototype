@@ -9,6 +9,11 @@
 #include "p2Point.h"
 
 // TODO 1: Create your structure of classes
+enum EntityType
+{
+	PLAYER,
+	ENEMY
+};
 struct SDL_Texture;
 struct SDL_Rect;
 class Entity;
@@ -41,7 +46,7 @@ public:
 
 
 	// Entity creation functions
-
+	void AddPlayer(int x, int y);
 
 	void BlitEntities();
 	

@@ -1,10 +1,6 @@
 #pragma once
 #include "Gui_Elements.h"
-enum EntityType
-{
-	PLAYER,
-	ENEMY
-};
+enum EntityType;
 class Entity
 {
 public:

@@ -54,7 +54,7 @@ public:
 	pugi::xml_parse_result	result;
 
 	bool					startgameaction = false;
-	bool					isGuiDebuggin = false;
+
 
 
 

@@ -93,7 +93,7 @@ void j1Gui::BlitElements()
 
 	App->input->GetMousePosition(mouse_x, mouse_y);
 
-	for (std::list<Gui_Elements*>::iterator it = element_list.begin(); it != element_list.end() && App->scene_gui->isGuiDebuggin == true; it++)
+	for (std::list<Gui_Elements*>::iterator it = element_list.begin(); it != element_list.end() && App->scene->isDebuggin == true; it++)
 	{
 		if (mouse_x >= (*it)->position.x &&
 			mouse_y >= (*it)->position.y &&
@@ -109,8 +109,6 @@ void j1Gui::BlitElements()
 			{
 				for (std::list<Gui_Elements*>::iterator it2 = element_list.begin(); it2 != element_list.end(); it2++)
 				{
-
-
 					if ((*it)->position.x == (*it2)->position.x && (*it) != (*it2) && App->input->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT)
 					{
 						isAlign = true;
@@ -162,8 +160,7 @@ void j1Gui::BlitElements()
 
 			}
 			//Blit Texture
-			SDL_Rect iterator_rect = (*it)->section;
-			App->render->Blit((*it)->texture, (*it)->position.x, (*it)->position.y, &iterator_rect);
+			App->render->Blit((*it)->texture, (*it)->position.x, (*it)->position.y, &(*it)->section);
 
 			//Blit Text
 			SDL_Texture* text = App->font->Print((*it)->string.c_str(), { 255,255,255,255 }, App->gui->font24);

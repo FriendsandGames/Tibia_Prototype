@@ -69,17 +69,7 @@ bool j1SceneGui::Update(float dt)
 	int mouse_y;
 
 	App->input->GetMousePosition(mouse_x, mouse_y);
-	if (App->input->GetKey(SDL_SCANCODE_F8) == KEY_DOWN)
-	{
-		if (isGuiDebuggin == false)
-		{
-			isGuiDebuggin = true;
-		}
-		else
-		{
-			isGuiDebuggin = false;
-		}
-	}
+
 
 
 	if (blittimer.Read() > 1)

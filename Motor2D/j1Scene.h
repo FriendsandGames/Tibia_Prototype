@@ -2,6 +2,7 @@
 #define __j1SCENE_H__
 
 #include "j1Module.h"
+#include "j1Map.h"
 
 struct SDL_Texture;
 class GuiImage;
@@ -35,10 +36,19 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	void PlayerMovementInputs();
+
+	void CameraMovement(float dt);
+
 private:
 	SDL_Texture*		debug_tex;
 	GuiImage*			banner;
 	GuiText*			text;
+	SDL_Texture*		player_texture;
+
+	int					player_x = 1000;
+	int					player_y = 1000;
+
 private:
 	_TTF_Font*			Font;
 
@@ -47,7 +57,8 @@ public:
 	p2SString			display_score;
 
 	p2SString			display_floating_score;
-	int					tabstate = 0;
+	bool				isDebuggin = false;
+
 
 
 

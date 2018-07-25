@@ -13,6 +13,7 @@
 #include "j1EntityController.h"
 
 
+
 j1EntityController::j1EntityController() : j1Module()
 {
 	name.create("entity");
@@ -63,6 +64,13 @@ bool j1EntityController::CleanUp()
 {
 	
 	return true;
+}
+
+void j1EntityController::AddPlayer(int x, int y)
+{
+
+
+
 }
 
 void j1EntityController::BlitEntities()
