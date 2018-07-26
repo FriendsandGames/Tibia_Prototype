@@ -226,7 +226,7 @@ void j1Scene::PlayerMovementInputs()
 		}
 		else
 		{
-			player_moving_e = false;
+			player_moving_e = false; 
 			original_x = player_x;
 		}
 	}

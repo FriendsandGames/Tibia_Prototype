@@ -12,6 +12,6 @@
 	<scene />
 	<scenegui />
 	<renderer>
-		<camera x="-1296" y="-1244" />
+		<camera x="-1808" y="-2012" />
 	</renderer>
 </game_state>

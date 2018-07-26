@@ -4,8 +4,8 @@ enum EntityType;
 class Entity
 {
 public:
-
-	Entity(EntityType name, int x, int y, const SDL_Rect collider, bool active, j1Module* callback) {}
+	Entity(){}
+	Entity(EntityType name, int x, int y) {}
 
 	~Entity();
 

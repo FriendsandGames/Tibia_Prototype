@@ -11,8 +11,7 @@
 #include "p2Animation.h"
 #include "j1Scene.h"
 #include "j1EntityController.h"
-
-
+#include "Entity.h"
 
 j1EntityController::j1EntityController() : j1Module()
 {
@@ -73,8 +72,19 @@ void j1EntityController::AddPlayer(int x, int y)
 
 }
 
+Entity * j1EntityController::AddEnemy(EntityType type, int x, int y)
+{
+	Entity* ret = new Entity(type, x, y);
+	
+	entity_list.push_back(ret);
+	return ret;
+}
+
 void j1EntityController::BlitEntities()
 {
-
+	for (std::list<Entity*>::iterator it = entity_list.begin(); it != entity_list.end(); it++)
+	{
+		
+	}
 	
 }

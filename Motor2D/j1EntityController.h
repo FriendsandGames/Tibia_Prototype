@@ -3,6 +3,7 @@
 
 #include "j1Module.h"
 #include <list>
+
 #include "SDL_ttf\include\SDL_ttf.h"
 #include "PugiXml\src\pugixml.hpp"
 #include "j1Scene.h"
@@ -12,7 +13,7 @@
 enum EntityType
 {
 	PLAYER,
-	ENEMY
+	GRUNT
 };
 struct SDL_Texture;
 struct SDL_Rect;
@@ -47,9 +48,12 @@ public:
 
 	// Entity creation functions
 	void AddPlayer(int x, int y);
+	Entity* AddEnemy(EntityType type, int x, int y);
 
 	void BlitEntities();
 	
+public:
+	std::list<Entity*> entity_list;
 };
 
 #endif 
