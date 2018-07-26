@@ -5,13 +5,19 @@ class Entity
 {
 public:
 	Entity(){}
-	Entity(EntityType name, int x, int y) {}
+	Entity(EntityType name, int x, int y) 
+	{
+		this->x = x;
+		this->y = y;
+		type = name;
+	}
 
 	~Entity();
 
 public:
-	int position;
-	int active;
+	int x;
+	int y;
+	EntityType type;
 
 };
 

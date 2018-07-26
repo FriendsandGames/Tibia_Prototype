@@ -51,8 +51,8 @@ bool j1Render::Awake(pugi::xml_node& config)
 	{
 		camera.w = App->win->screen_surface->w;
 		camera.h = App->win->screen_surface->h;
-		camera.x = data.child("game_state").child("renderer").child("camera").attribute("x").as_int();
-		camera.y = data.child("game_state").child("renderer").child("camera").attribute("y").as_int();
+		camera.x = data.child("game_state").child("renderer").child("camera").attribute("x").as_int()*-1;
+		camera.y = data.child("game_state").child("renderer").child("camera").attribute("y").as_int()*-1;
 	}
 
 	return ret;
@@ -92,8 +92,8 @@ bool j1Render::CleanUp()
 // Load Game State
 bool j1Render::Load(pugi::xml_node& data)
 {
-	camera.x = data.child("camera").attribute("x").as_int();
-	camera.y = data.child("camera").attribute("y").as_int();
+	camera.x = data.child("camera").attribute("x").as_int()*-1;
+	camera.y = data.child("camera").attribute("y").as_int()*-1;
 
 	return true;
 }
@@ -104,8 +104,8 @@ bool j1Render::Save(pugi::xml_node& data) const
 
 	pugi::xml_node cam = data.append_child("camera");
 
-	cam.append_attribute("x") = camera.x;
-	cam.append_attribute("y") = camera.y;
+	cam.append_attribute("x") = camera.x*-1;
+	cam.append_attribute("y") = camera.y*-1;
 
 	return true;
 }

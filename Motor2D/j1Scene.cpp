@@ -13,6 +13,7 @@
 #include "j1Fonts.h"
 #include "j1Window.h"
 #include "j1SceneGui.h"
+#include "j1EntityController.h"
 
 j1Scene::j1Scene() : j1Module()
 {
@@ -48,6 +49,8 @@ bool j1Scene::Start()
 	debug_tex = App->tex->Load("maps/path2.png");
 
 	player_texture = App->tex->Load("Assets/Footman_Spritesheet.png");
+
+	App->entity->AddEnemy(GRUNT, 100, 100);
 
 	
 
@@ -89,6 +92,12 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
+	if (App->scene_gui->startgameaction == true)
+	{
+		App->map->Draw();
+	}
+	App->map->Draw();
+
 	if (App->input->GetKey(SDL_SCANCODE_F8) == KEY_DOWN)
 	{
 		if (isDebuggin == false)
@@ -108,16 +117,8 @@ bool j1Scene::Update(float dt)
 		App->SaveGame("save_game.xml");
 
 
-
-
-
-	if (App->scene_gui->startgameaction == true)
-	{
-		App->map->Draw();
-	}
-	App->map->Draw();
-
 	PlayerMovementInputs();
+	App->entity->BlitEntities();
 	CameraMovement(dt);
 
 	
@@ -178,7 +179,7 @@ void j1Scene::PlayerMovementInputs()
 {
 
 
-	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT || player_moving_n == true)
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT && player_moving_s == false && player_moving_e == false && player_moving_w == false || player_moving_n == true )
 	{
 		if (player_y !=  original_y - App->map->data.tile_height * 2)
 		{
@@ -191,7 +192,7 @@ void j1Scene::PlayerMovementInputs()
 			original_y = player_y;
 		}
 	}
-	else if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT || player_moving_w == true)
+	else if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && player_moving_e == false && player_moving_n == false && player_moving_s == false || player_moving_w == true )
 	{
 		if (player_x != original_x - App->map->data.tile_height * 2)
 		{
@@ -204,7 +205,7 @@ void j1Scene::PlayerMovementInputs()
 			original_x = player_x;
 		}
 	}		
-	else if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT || player_moving_s == true)
+	else if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT && player_moving_n == false && player_moving_e == false && player_moving_w == false || player_moving_s == true )
 	{
 		if (player_y != original_y + App->map->data.tile_height * 2)
 		{
@@ -217,7 +218,7 @@ void j1Scene::PlayerMovementInputs()
 			original_y = player_y;
 		}
 	}		
-	else if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT || player_moving_e == true)
+	else if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && player_moving_n == false && player_moving_s == false && player_moving_w == false || player_moving_e == true )
 	{
 		if (player_x != original_x + App->map->data.tile_height * 2)
 		{
@@ -234,6 +235,10 @@ void j1Scene::PlayerMovementInputs()
 	{
 		original_y = player_y;
 		original_x = player_x;
+		player_moving_e = false;
+		player_moving_s = false;
+		player_moving_w = false;
+		player_moving_n = false;
 	}
 		
 

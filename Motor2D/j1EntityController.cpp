@@ -2,7 +2,6 @@
 #include "p2Log.h"
 #include "j1App.h"
 #include "j1Render.h"
-#include "j1Textures.h"
 #include "j1Fonts.h"
 #include "j1Input.h"
 #include "j1Gui.h"
@@ -35,6 +34,8 @@ bool j1EntityController::Awake(pugi::xml_node& conf)
 // Called before the first frame
 bool j1EntityController::Start()
 {
+	//Loading Textures
+	grunt_texture = App->tex->Load("Assets/Grunt_SpriteSheet.png");
 
 	return true;
 }
@@ -49,12 +50,13 @@ bool j1EntityController::PreUpdate(float dt)
 bool j1EntityController::Update(float dt)
 {
 
+
 	return true;
 }
 // Called after all Updates
 bool j1EntityController::PostUpdate()
 {
-	BlitEntities();
+
 	return true;
 }
 
@@ -84,7 +86,11 @@ void j1EntityController::BlitEntities()
 {
 	for (std::list<Entity*>::iterator it = entity_list.begin(); it != entity_list.end(); it++)
 	{
-		
+		if ((*it)->type == GRUNT)
+		{
+			SDL_Rect grunt_rect = { 0,0,60,60 };
+			App->render->Blit(grunt_texture, (*it)->x, (*it)->y, &grunt_rect);
+		}
 	}
 	
 }

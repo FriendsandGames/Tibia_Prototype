@@ -160,13 +160,13 @@ void j1Gui::BlitElements()
 
 			}
 			//Blit Texture
-			App->render->Blit((*it)->texture, (*it)->position.x, (*it)->position.y, &(*it)->section);
+			App->render->Blit((*it)->texture, (*it)->position.x - App->render->camera.x, (*it)->position.y - App->render->camera.y, &(*it)->section);
 
 			//Blit Text
 			SDL_Texture* text = App->font->Print((*it)->string.c_str(), { 255,255,255,255 }, App->gui->font24);
 			int text_w;
 			SDL_QueryTexture(text, NULL, NULL, &text_w, NULL);
-			App->render->Blit(text, (*it)->position.x + (*it)->section.w/2 - text_w/2, (*it)->position.y + (*it)->section.h/4);
+			App->render->Blit(text, (*it)->position.x - App->render->camera.x + (*it)->section.w/2 - text_w/2, (*it)->position.y - App->render->camera.y + (*it)->section.h/4);
 		}
 	}
 

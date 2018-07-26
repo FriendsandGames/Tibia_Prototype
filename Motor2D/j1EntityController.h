@@ -8,6 +8,7 @@
 #include "PugiXml\src\pugixml.hpp"
 #include "j1Scene.h"
 #include "p2Point.h"
+#include "j1Textures.h"
 
 // TODO 1: Create your structure of classes
 enum EntityType
@@ -54,6 +55,7 @@ public:
 	
 public:
 	std::list<Entity*> entity_list;
+	SDL_Texture* grunt_texture;
 };
 
 #endif 
