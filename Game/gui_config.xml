@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <config>
 	<STARTGAME>
-		<position x="846" y="723" />
+		<position x="848" y="724" />
 	</STARTGAME>
 	<OPTIONS>
-		<position x="846" y="798" />
+		<position x="846" y="800" />
 	</OPTIONS>
 	<ATLAS>
 		<position x="1246" y="-10" />

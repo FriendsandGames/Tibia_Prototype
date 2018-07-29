@@ -46,7 +46,7 @@ bool j1Scene::Start()
 
 		RELEASE_ARRAY(data);
 	}
-	debug_tex = App->tex->Load("maps/path2.png");
+	debug_tex = App->tex->Load("maps/path.png");
 
 	player_texture = App->tex->Load("Assets/Footman_Spritesheet.png");
 
@@ -143,14 +143,14 @@ bool j1Scene::Update(float dt)
 	p = App->map->WorldToMap(p.x, p.y);
 	p = App->map->MapToWorld(p.x, p.y);
 
-	App->render->Blit(debug_tex, p.x, p.y);
+	App->render->Blit(debug_tex, p.x, p.y,(const SDL_Rect *)0,2.0f);
 
 	const p2DynArray<iPoint>* path = App->pathfinding->GetLastPath();
 
 	for(uint i = 0; i < path->Count(); ++i)
 	{
 		iPoint pos = App->map->MapToWorld(path->At(i)->x, path->At(i)->y);
-		App->render->Blit(debug_tex, pos.x, pos.y);
+		App->render->Blit(debug_tex, pos.x, pos.y,(const SDL_Rect *)0);
 	}
 
 	return true;
@@ -181,9 +181,9 @@ void j1Scene::PlayerMovementInputs()
 
 	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT && player_moving_s == false && player_moving_e == false && player_moving_w == false || player_moving_n == true )
 	{
-		if (player_y !=  original_y - App->map->data.tile_height * 2)
+		if (player_y >=  original_y - App->map->data.tile_height)
 		{
-			player_y = player_y - 1;
+			player_y = player_y - 3;
 			player_moving_n = true;
 		}
 		else
@@ -194,9 +194,9 @@ void j1Scene::PlayerMovementInputs()
 	}
 	else if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && player_moving_e == false && player_moving_n == false && player_moving_s == false || player_moving_w == true )
 	{
-		if (player_x != original_x - App->map->data.tile_height * 2)
+		if (player_x >= original_x - App->map->data.tile_width)
 		{
-			player_x = player_x - 1;
+			player_x = player_x - 3;
 			player_moving_w = true;
 		}
 		else
@@ -207,9 +207,9 @@ void j1Scene::PlayerMovementInputs()
 	}		
 	else if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT && player_moving_n == false && player_moving_e == false && player_moving_w == false || player_moving_s == true )
 	{
-		if (player_y != original_y + App->map->data.tile_height * 2)
+		if (player_y >= original_y + App->map->data.tile_height)
 		{
-			player_y = player_y + 1;
+			player_y = player_y + 3;
 			player_moving_s = true;
 		}
 		else
@@ -220,9 +220,9 @@ void j1Scene::PlayerMovementInputs()
 	}		
 	else if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && player_moving_n == false && player_moving_s == false && player_moving_w == false || player_moving_e == true )
 	{
-		if (player_x != original_x + App->map->data.tile_height * 2)
+		if (player_x >= original_x + App->map->data.tile_width)
 		{
-			player_x = player_x + 1;
+			player_x = player_x + 3;
 			player_moving_e = true;
 		}
 		else
@@ -242,9 +242,9 @@ void j1Scene::PlayerMovementInputs()
 	}
 		
 
-	SDL_Rect rect = { 300, 0, App->map->data.tile_width * 2, App->map->data.tile_height * 2 };
+	SDL_Rect rect = { 317, 10, App->map->data.tile_width * 2, App->map->data.tile_height * 2 };
 
-	App->render->Blit(player_texture, player_x, player_y, &rect, 2.0f);
+	App->render->Blit(player_texture, player_x - App->map->data.tile_width / 12, player_y- App->map->data.tile_height/4, &rect, 2.0f);
 }
 
 void j1Scene::CameraMovement(float dt)

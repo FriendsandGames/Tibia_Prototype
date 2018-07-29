@@ -46,8 +46,8 @@ private:
 	GuiText*			text;
 	SDL_Texture*		player_texture;
 
-	int					player_x = 1000;
-	int					player_y = 1000;
+	int					player_x = 0;
+	int					player_y = 0;
 
 private:
 	_TTF_Font*			Font;
